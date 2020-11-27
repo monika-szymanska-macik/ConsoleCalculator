@@ -10,30 +10,22 @@ namespace ConsoleCalculator
         {
             string nonNullOperation = 
                 operation ?? throw new ArgumentNullException(nameof(operation));
-            //if(operation is null)
-            //{
-            //    throw new ArgumentNullException(nameof(operation));
-            //}
+
             if(nonNullOperation == "/")
             {
                 try
                 {
                     return Divide(number1, number2);
                 }
-                catch(DivideByZeroException ex)
+                catch(ArithmeticException ex)
                 {
-                    //throw;
 
-                    throw new ArithmeticException("An error occurred during calculation",
-                        ex);
+                    throw new CalculationException("An error occurred during division", ex);
                 }
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(operation), 
-                    "The mathematical operator is not supported");
-                //Console.WriteLine("Unkown operation.");
-                //return 0;
+                throw new CalculationOperationNotSupportedException(operation);
             }
         }
 

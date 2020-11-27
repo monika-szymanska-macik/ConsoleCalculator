@@ -26,13 +26,13 @@ namespace ConsoleCalculator
                 int result = calculator.Calculate(number1, number2, null);
                 DisplayResult(result);
             }
-            catch(ArgumentNullException ex) when (ex.ParamName == "operation")
+            catch(CalculationOperationNotSupportedException ex)
             {
-                WriteLine($"Operation was not provided. {ex}");
+                WriteLine(ex);
             }
-            catch(ArgumentOutOfRangeException ex)
+            catch(CalculationException ex)
             {
-                WriteLine($"Operation is not supported. {ex}");
+                WriteLine(ex);
             }
             catch(Exception ex)
             {
