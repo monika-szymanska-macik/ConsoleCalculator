@@ -14,8 +14,10 @@ namespace ConsoleCalculator
             }
             else
             {
-                Console.WriteLine("Unkown operation.");
-                return 0;
+                throw new ArgumentOutOfRangeException(nameof(operation), 
+                    "The mathematical operator is not supported");
+                //Console.WriteLine("Unkown operation.");
+                //return 0;
             }
         }
 
