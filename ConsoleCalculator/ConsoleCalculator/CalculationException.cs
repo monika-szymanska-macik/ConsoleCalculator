@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleCalculator
 {
-    class CalculationException : Exception
+    public class CalculationException : Exception
     {
         private static readonly string DefaultMessage =
             "An error occured during calculation. Ensure that the oparator is supported " +
